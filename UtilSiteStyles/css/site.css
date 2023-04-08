@@ -8,7 +8,6 @@
   Blazer default boiler plate styling START
 */
 
-@import url("open-iconic/font/css/open-iconic-bootstrap.min.css");
 @font-face {
   font-family: 'JediFont';
   src: url("../fonts/SkyLuke.otf") format("opentype");
