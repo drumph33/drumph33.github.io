@@ -1,0 +1,206 @@
+/*
+  Sets the default values for the theme.  The default theme is currently titled Light
+*/
+:root {
+    --clr-body-bg: hsl(360 50% 11%);
+    --clr-card-bg: hsl(360 50% 19%);
+    --clr-input-bg: hsl(325, 85%, 87%);
+    --clr-img-bg: hsl(360 50% 34%);
+    --clr-border: white;
+    --clr-text: hsl(0, 45%, 49%);
+    --clr-heading: hsl(0, 72%, 46%);
+    --clr-neon: hsl(360 100% 52%);
+    --clr-neon-secondary: hsl(281, 100%, 51%);
+    --clr-neon-opposite: hsl(122, 100%, 53%);
+    --clr-logo-shadow: 0 12px 30px rgba(255,255,255,0.7);
+    --font-fam-headings: 'Mandalore';
+    --font-fam-subheadings: 'AndroidAssassin';
+    --font-fam-paragraphs: 'Orbitron';
+    --font-fam-footer: 'Sterilict';
+  }
+
+  body {
+    font-family: var(--font-fam);
+  }
+
+  /*
+  Theme picker section START
+*/
+
+/*
+  The fieldset is the visual box that is displayed.  Setting the background to the
+  same value as the body will make it appear as if there is no background. Because
+  the fieldset is the box around the radios, applying border-image will create a 
+  nice border around the radios.  
+
+  TO IMPROVE: Probably need to make this a hideable element somehow.  It shouldn't
+  be ever present.
+
+*/
+
+.theme-picker > fieldset {
+    border: 5px solid;
+    display: flex;
+    gap: 2rem;
+    width: fit-content;
+    background: var(--clr-card-bg);
+    padding: 1rem 3rem;
+    margin-inline: auto;
+    border-radius: 1rem 1rem 1rem 1rem;
+    border-color: var(--clr-border);
+  }
+
+  
+  /*
+    The appearance is set to not to hide the actual radio buttons.  Because
+    they hidden, their position had to be shifted so that the radios sit on
+    top of the images.
+  */
+  
+  .theme-picker input[type="radio"] {
+    appearance: none;
+    width: 1.5rem;
+    height: 1.5rem;
+    outline-offset: 3px;
+    border-radius: 150%;
+    position: relative;
+    left: 31px;
+    top: -1px;
+  }
+  
+  /*
+    Styling the images to be the correct size and also
+    what the cursor will look like on top of them.
+  */
+  
+  .theme-picker input[type="radio"] + img {
+    cursor: pointer;
+    background:rgba(255, 255, 255, 0.699);
+    border-radius: 50%;
+  }
+  
+  .logo-image {
+    width: 50px; 
+  }
+
+  /*
+    Determines what happens when the radio has been selected.
+    We want to denote which radio is active.  This code seems
+    to work, but I am not quite sure why there are 2 box shadows
+    when they seem to be side to the same object.
+  */
+
+  .theme-picker input[type="radio"]:checked + img {
+    width:50px;
+    background:white;
+    text-align: center;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: var(--clr-logo-shadow);
+  }
+  
+  /*
+    Determines the variable values which will apply to each theme.
+    Every them basically needs two entries.  One for regular class
+    and another for the same class with has() for when it is checked.
+  */
+    h1, h2 {
+      font-family: var(--font-fam-headings);
+    }
+    h3, h4 , h5 {
+      font-family: var(--font-fam-subheadings);
+    }
+   
+    h6, p {
+      font-family: var(--font-fam-paragraphs);
+    }
+    .txt-btn-wrapper p {
+      font-family: var(--font-fam-paragraphs)
+    }
+    footer p {
+      font-family: var(--font-fam-footer);
+    }
+    
+    h1 {
+      font-size: 4.5rem;
+      letter-spacing: -0.1rem;
+    }
+    h2 {
+      font-size: 2rem
+    }
+    h6 {
+      font-size: 1rem;
+    }
+  .red {
+    --clr-body-bg: hsl(360 50% 11%);
+    --clr-card-bg: hsl(360 50% 19%);
+    --clr-input-bg: hsl(325, 85%, 87%);
+    --clr-img-bg: hsl(360 50% 34%);
+    --clr-border: white;
+    --clr-text: hsl(0, 45%, 49%);
+    --clr-heading: hsl(0, 72%, 46%);
+    --clr-neon: hsl(360 100% 52%);
+    --clr-neon-secondary: hsl(281, 100%, 51%);
+    --clr-neon-opposite: hsl(122, 100%, 53%);
+    --clr-logo-shadow: 0 12px 30px rgba(255,255,255,0.7);
+  }
+  
+  .dark {
+    --clr-body-bg: hsl(207, 29%, 10%);
+    --clr-card-bg: hsl(209, 28%, 19%);
+    --clr-input-bg: hsl(325, 85%, 87%);
+    --clr-img-bg: hsl(191 50% 34%);
+    --clr-border: white;
+    --clr-text: hsl(209 50% 77%);
+    --clr-heading: hsl(209 50% 85%);
+    --clr-neon: hsl(360 100% 52%);
+    --clr-neon-secondary: hsl(268, 100%, 51%);
+    --clr-neon-opposite: hsl(58, 100%, 52%);
+    --clr-logo-shadow: 0 12px 30px rgba(255,255,255,0.7);
+  }
+
+  .light {
+    --clr-body-bg: hsl(0 0% 80%);
+    --clr-card-bg: hsl(0 0% 90%);
+    --clr-img-bg: hsl(0 50% 69%);
+    --clr-input-bg: hsl(0, 54%, 73%);
+    --clr-border: black;
+    --clr-text: hsl(0 0% 10%);
+    --clr-heading: hsl(0 0% 20%);
+    --clr-neon: hsla(355, 95%, 84%, 0.918);
+    --clr-neon-secondary: hsl(281, 100%, 51%);
+    --clr-neon-opposite: hsl(227, 100%, 54%);
+    --clr-logo-shadow: 0 12px 30px rgba(0,0,0,0.7);
+  }
+  
+  :root:has(#light:checked) {
+    --clr-body-bg: hsl(0 0% 80%);
+    --clr-card-bg: hsl(0 0% 90%);
+    --clr-input-bg: hsl(0, 54%, 73%);
+    --clr-img-bg: hsl(0 50% 69%);
+    --clr-border: black;
+    --clr-text: hsl(0 0% 10%);
+    --clr-heading: hsl(0 0% 20%);
+    --clr-neon: hsl(355 100% 54%);
+    --clr-neon-secondary: hsl(281, 100%, 51%);
+    --clr-neon-opposite: hsl(227, 100%, 54%);
+    --clr-logo-shadow: 0 12px 30px rgba(0,0,0,0.7);
+  }
+  
+  :root:has(#dark:checked) {
+    --clr-body-bg: hsl(207, 29%, 10%);
+    --clr-card-bg: hsl(209, 28%, 19%);
+    --clr-input-bg: hsl(325, 85%, 87%);
+    --clr-img-bg: hsl(191 50% 34%);
+    --clr-border: white;
+    --clr-text: hsl(209 50% 77%);
+    --clr-heading: hsl(209 50% 85%);
+    --clr-neon:  hsl(360 100% 52%);
+    --clr-neon-secondary: hsl(268, 100%, 51%);
+    --clr-neon-opposite: hsl(58, 100%, 52%);
+    --clr-logo-shadow: 0 12px 30px rgba(255,255,255,0.7); 
+  }
+  
+  /*
+    Theme picker section END
+  */

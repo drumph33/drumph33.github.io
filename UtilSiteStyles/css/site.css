@@ -1,0 +1,506 @@
+/*
+  Main CSS page for the site.  All universal CSS clases should be
+  put here. I.e all EXCEPT those relating to the MainLayout, Nav, 
+  and other layout specific CSS.
+*/
+
+/*
+  Blazer default boiler plate styling START
+*/
+
+@import url("open-iconic/font/css/open-iconic-bootstrap.min.css");
+@font-face {
+  font-family: 'JediFont';
+  src: url("../fonts/SkyLuke.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face{ 
+	font-family: 'DeathStar';
+	src: url("../fonts/DeathStar-VmWB.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'DistantGalaxy';
+  src: url("../fonts/DISTGRG_-webfont.woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Sterilict';
+  src: url("../fonts/Sterilict-L3aen.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Mandalore';
+  src: url("../fonts/MandaloreExpanded-1GGd4.otf");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Vermillion22';
+  src: url("../fonts/Vermillion22-mLaO2.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'AndroidAssassin';
+  src: url("../fonts/Vermillion22-mLaO2.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Orbitron';
+  src: url("../fonts/OrbitronBlack-n6dV.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Xolonium';
+  src: url("../fonts/Xolonium-pn4D.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+html, body {   
+    background-blend-mode: multiply;
+}
+
+a{
+    color: #0071c1;
+}
+button {
+  background: none;
+  border: none;
+  padding: 0;
+  }
+
+.content {
+    padding-top: 1.1rem;
+}
+
+.valid.modified:not([type=checkbox]) {
+    outline: 1px solid #26b050;
+}
+
+.invalid {
+    outline: 1px solid red;
+}
+
+.validation-message {
+    color: red;
+}
+
+#blazor-error-ui {
+    background: lightyellow;
+    bottom: 0;
+    box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.2);
+    display: none;
+    left: 0;
+    padding: 0.6rem 1.25rem 0.7rem 1.25rem;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+}
+
+#blazor-error-ui .dismiss {
+    cursor: pointer;
+    position: absolute;
+    right: 0.75rem;
+    top: 0.5rem;
+}
+
+.blazor-error-boundary {
+    background: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTYiIGhlaWdodD0iNDkiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIG92ZXJmbG93PSJoaWRkZW4iPjxkZWZzPjxjbGlwUGF0aCBpZD0iY2xpcDAiPjxyZWN0IHg9IjIzNSIgeT0iNTEiIHdpZHRoPSI1NiIgaGVpZ2h0PSI0OSIvPjwvY2xpcFBhdGg+PC9kZWZzPjxnIGNsaXAtcGF0aD0idXJsKCNjbGlwMCkiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0yMzUgLTUxKSI+PHBhdGggZD0iTTI2My41MDYgNTFDMjY0LjcxNyA1MSAyNjUuODEzIDUxLjQ4MzcgMjY2LjYwNiA1Mi4yNjU4TDI2Ny4wNTIgNTIuNzk4NyAyNjcuNTM5IDUzLjYyODMgMjkwLjE4NSA5Mi4xODMxIDI5MC41NDUgOTIuNzk1IDI5MC42NTYgOTIuOTk2QzI5MC44NzcgOTMuNTEzIDI5MSA5NC4wODE1IDI5MSA5NC42NzgyIDI5MSA5Ny4wNjUxIDI4OS4wMzggOTkgMjg2LjYxNyA5OUwyNDAuMzgzIDk5QzIzNy45NjMgOTkgMjM2IDk3LjA2NTEgMjM2IDk0LjY3ODIgMjM2IDk0LjM3OTkgMjM2LjAzMSA5NC4wODg2IDIzNi4wODkgOTMuODA3MkwyMzYuMzM4IDkzLjAxNjIgMjM2Ljg1OCA5Mi4xMzE0IDI1OS40NzMgNTMuNjI5NCAyNTkuOTYxIDUyLjc5ODUgMjYwLjQwNyA1Mi4yNjU4QzI2MS4yIDUxLjQ4MzcgMjYyLjI5NiA1MSAyNjMuNTA2IDUxWk0yNjMuNTg2IDY2LjAxODNDMjYwLjczNyA2Ni4wMTgzIDI1OS4zMTMgNjcuMTI0NSAyNTkuMzEzIDY5LjMzNyAyNTkuMzEzIDY5LjYxMDIgMjU5LjMzMiA2OS44NjA4IDI1OS4zNzEgNzAuMDg4N0wyNjEuNzk1IDg0LjAxNjEgMjY1LjM4IDg0LjAxNjEgMjY3LjgyMSA2OS43NDc1QzI2Ny44NiA2OS43MzA5IDI2Ny44NzkgNjkuNTg3NyAyNjcuODc5IDY5LjMxNzkgMjY3Ljg3OSA2Ny4xMTgyIDI2Ni40NDggNjYuMDE4MyAyNjMuNTg2IDY2LjAxODNaTTI2My41NzYgODYuMDU0N0MyNjEuMDQ5IDg2LjA1NDcgMjU5Ljc4NiA4Ny4zMDA1IDI1OS43ODYgODkuNzkyMSAyNTkuNzg2IDkyLjI4MzcgMjYxLjA0OSA5My41Mjk1IDI2My41NzYgOTMuNTI5NSAyNjYuMTE2IDkzLjUyOTUgMjY3LjM4NyA5Mi4yODM3IDI2Ny4zODcgODkuNzkyMSAyNjcuMzg3IDg3LjMwMDUgMjY2LjExNiA4Ni4wNTQ3IDI2My41NzYgODYuMDU0N1oiIGZpbGw9IiNGRkU1MDAiIGZpbGwtcnVsZT0iZXZlbm9kZCIvPjwvZz48L3N2Zz4=) no-repeat 1rem/1.8rem, #b32121;
+    padding: 1rem 1rem 1rem 3.7rem;
+    color: white;
+}
+
+.blazor-error-boundary::after {
+    content: "An error has occurred."
+}
+
+/*
+  Blazer default boiler plate styling END
+*/
+
+
+/* add somewhere for variable fonts and variablize the values for integration into theme picker :::>  font-family: 'Kyiz Sans';*/
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/*
+  Basic page styling section which imports the theme values.  This
+  section should be updated to make the overall look clean.
+*/
+body {
+  margin: 0;
+  font-family: var(--font-fam);
+  font-size: 1.25rem;
+  line-height: 1.5;
+  background: var(--clr-body-bg);
+  color: var(--clr-text);
+  font-weight: 100;
+}
+
+#index-body {
+  margin: 0;
+  font-size: 1.25rem;
+  line-height: 1.5;
+  background: hsl(207, 29%, 8%);
+  color: hsl(209 50% 77%);
+  align-self: auto;
+  padding: 2rem;
+}
+.landing-image {
+  border-radius: 5px;
+  margin-bottom: 1rem;
+}
+
+#index-body h1,
+#index-body h2,
+#index-body h3,
+#index-body h4,
+#index-body h5,
+#index-body h6 {
+  color: hsl(209 50% 85%);
+  line-height: 1.1;
+  text-align: center;
+  margin: 0rem 1rem 1rem 0rem;
+  border: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0rem 1rem 1rem 0rem;
+  border: none;
+}
+h1,
+h2,
+h3 {
+  color: var(--clr-heading);
+  line-height: 1.1;
+}
+.auto-grid {
+  --min-column-size: 225px;
+
+  display: grid;
+  gap: clamp(1rem, 5vmax, 1.625rem);
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(min(100%, var(--min-column-size)), 1fr)
+  );
+}
+ .wrapper {
+  --max-width: 68rem;
+  width: min(100% - 2rem, var(--max-width));
+  margin-inline: auto;
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+} 
+.back-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: fit-content;
+  margin-top: 11.7rem;
+  
+}
+.form-wrapper {
+  --max-width: 55rem;
+}
+.landing-wrapper {
+  --max-width: 78rem;
+  width: min(100% - 2rem, var(--max-width));
+  margin-inline: auto;
+  padding: 2rem;
+  text-align: center;
+  border-radius: 15px;
+  border-color: black;
+  background-color: hsl(207, 29%, 13%);
+} 
+.page-wrapper {
+  padding: 4rem;
+}
+#button-link-wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-bottom: 4rem;
+  padding: 1rem;
+}
+.txt-wrapper{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  text-align: center;
+  border-radius: 15px;
+	-webkit-box-shadow: 2px 2px 5px 0px var(--clr-neon);
+	-moz-box-shadow: 2px 2px 5px 0px var(--clr-neon);
+	box-shadow: 2px 2px 5px 0px var(--clr-neon);
+  border-color: black;
+  background-color: var(--clr-card-bg);
+  margin-bottom: 3rem;  
+}
+.txt-btn-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1rem 2rem 1.5rem 2rem;
+  width: 500px;
+  background-color: var(--clr-card-bg);
+  border-radius: 18px;
+	-webkit-box-shadow: 3px 3px 7px 0px var(--clr-neon);
+	-moz-box-shadow: 3px 3px 7px 0px var(--clr-neon);
+	box-shadow: 3px 3px 7px 0px var(--clr-neon);
+  border-color: black;
+  text-align: center;
+}
+
+
+.exit-image {
+  position: absolute;
+  width: 480px;
+  height: 270px;
+  transform:  scale(.9) rotate(-1deg) translatey(24px);
+  padding: 10px;
+  border-radius: 5px;
+  background: var(--clr-img-bg);
+  box-shadow: 0 0 8px rgba(0, 0, 0, .7);
+  align-self: center;
+}
+
+.card {
+  padding: 1rem;
+  background-color: var(--clr-card-bg);
+  border-block-start: 0.5rem solid;
+  border-radius: 0.5rem;
+}
+.card > * {
+  margin: 0;
+}
+.card > *:not(:last-child) {
+  margin-bottom: 0.75rem;
+}
+.visually-hidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+.intro-link-wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 1rem 2rem 1rem 2rem;
+  object-fit: contain;
+  justify-content: space-evenly;
+  background: hsl(209, 28%, 27%);
+  border-radius: 15px;
+}
+.intro-link{
+  padding: 4rem;
+  height: 750px;
+  border-radius: 10px;
+}
+.sith-link:hover{
+  border-radius: 20px;
+	-webkit-box-shadow: 9px -9px 18px 4px hsl(360 100% 52%);
+	-moz-box-shadow: 9px -9px 18px 4px hsl(360 100% 52%);
+	box-shadow: 9px -9px 18px 4px hsl(360 100% 52%);
+}
+
+.jedi-link:hover{
+  border-radius: 20px;
+	-webkit-box-shadow: -9px -9px 18px 4px hsl(122, 100%, 52%);
+	-moz-box-shadow: -9px -9px 18px 4px hsl(122, 100%, 52%);
+	box-shadow: -9px -9px 18px 4px hsl(122, 100%, 52%);
+}
+
+.intro-link-sith {
+  object-fit: contain;
+  height: 100%;
+  transform:  scale(.95) rotate(4deg);
+  border-radius: 5px;
+  background: hsl(209, 28%, 19%);
+  box-shadow: 0 0 8px rgba(0, 0, 0, .7);
+  align-self: center;
+}
+.intro-link-jedi {
+  object-fit: contain;
+  height: 100%;
+  transform:  scale(.95) rotate(-4deg);
+  border-radius: 5px;
+  background: hsl(209, 28%, 19%);
+  box-shadow: 0 0 8px rgba(0, 0, 0, .7);
+  align-self: center;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  font-family: 'Sterilict';
+  font-weight: 200;
+}
+
+.exit-button{
+  width: 460px;
+}
+
+/*
+  Basic Page Styling Section END
+*/
+
+/*
+  Neon Button Section START
+*/
+
+.neon-button {
+  font-family: 'Kanit';
+  font-weight: 200;
+  font-size: 1.25rem;
+  text-align: center;
+  display: inline-block;
+  cursor: pointer;
+  text-decoration: none;
+  color: var(--clr-neon);
+  border: var(--clr-neon) 0.125em solid;
+  padding: 0.25em 1em;
+  border-radius: 0.25em;
+  text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3), 0 0 0.45em currentColor;
+  box-shadow: inset 0 0 0.5em 0 var(--clr-neon), 0 0 0.5em 0 var(--clr-neon);
+  position: relative;
+  min-width: 28rem;
+  z-index: 1;
+}
+
+.neon-button::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  box-shadow: 0 0 2em 0.5em var(--clr-neon);
+  opacity: 0;
+  background-color: var(--clr-neon);
+  transition: opacity 100ms linear;
+  z-index: -1;
+}
+.neon-button:hover,
+.neon-button:focus {
+  color: #000000;
+  text-shadow: none;
+  font-weight: 500;
+}
+.neon-button:hover::before,
+.neon-button:focus::before {
+  opacity: 1;
+}
+.neon-button:hover::after,
+.neon-button:focus::after {
+  opacity: 1;
+}
+
+/*
+  Defines secondary and opposite neon buttons that are tracked with the theme.
+  There is probably a better way to do this than by duplicating neon button.
+*/
+
+/*
+  Neon-Button-Secondary
+*/
+
+.neon-secondary {
+  
+  color: var(--clr-neon-secondary);
+  border: var(--clr-neon-secondary) 0.125em solid;
+  text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3), 0 0 0.45em currentColor;
+  box-shadow: inset 0 0 0.5em 0 var(--clr-neon-secondary), 0 0 0.5em 0 var(--clr-neon-secondary);
+
+}
+
+.neon-secondary::after {
+
+  box-shadow: 0 0 2em 0.5em var(--clr-neon-secondary);
+  background-color: var(--clr-neon-secondary);
+}
+
+
+/*
+  Neon-Button-Opposite
+*/
+
+.neon-opposite {
+ 
+  color: var(--clr-neon-opposite);
+  border: var(--clr-neon-opposite) 0.125em solid;
+  text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3), 0 0 0.45em currentColor;
+  box-shadow: inset 0 0 0.5em 0 var(--clr-neon-opposite), 0 0 0.5em 0 var(--clr-neon-opposite);
+}
+
+.neon-opposite::after {
+ 
+  box-shadow: 0 0 2em 0.5em var(--clr-neon-opposite);
+  background-color: var(--clr-neon-opposite);
+
+}
+
+/* These classes set the neon color variable. This will override
+   the current them if a particular color is always wanted for a
+   specific button.
+*/
+.neon-green-button {
+    --clr-neon: rgb(42, 193, 44);
+}
+.neon-blue-button {
+    --clr-neon: rgb(47, 113, 194);
+}
+.neon-red-button {
+    --clr-neon: rgb(235, 9, 9);
+}
+.neon-yellow-button {
+    --clr-neon: rgb(220, 232, 57);
+}
+.neon-purple-button {
+    --clr-neon: rgb(209, 25, 222);
+}
+/*
+  Neon Button Section EMD
+*/
+/* Fonts */
+.kanit {
+  font-family: 'Kanit', sans-serif;
+  font-weight: 500;
+}
+.death-star{
+  font-family: 'DeathStar', sans-serif;
+  letter-spacing: 0.15rem;
+}
+.jedi-font {
+  font-family: 'JediFont';
+}
+/* End fonts */
+
+/* ensure to wrap your div with this class: 
+CURRENTLY WRAPPING MAIN DIV 
+.varible-font {
+    font-family: 'Kyiz Sans';
+    font-size: 2rem;
+    line-height: 1.1;
+    font-weight: 200;
+}
+
+*/
+
+/* Better looking dropdown menus START */

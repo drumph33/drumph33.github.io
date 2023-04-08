@@ -1,0 +1,260 @@
+/*
+  Sets the default values for the theme.  The default theme is currently titled Light
+*/
+
+
+:root {
+    --clr-body-bg: hsl(209 50% 12%);
+    --clr-card-bg: hsl(209 50% 20%);
+    --clr-input-bg: hsl(209 72% 75%);
+    --clr-img-bg: hsl(194 50% 30%);
+    --clr-border: white;
+    --clr-text: hsl(209, 85%, 68%);
+    --clr-heading: hsl(209 72% 75%);
+    --clr-neon: hsl(189, 100%, 48%);
+    --clr-neon-secondary: hsl(281, 100%, 51%);
+    --clr-neon-opposite: hsl(360 100% 52%);
+    --clr-logo-shadow: 0 12px 30px rgba(255,255,255,0.7);
+    --font-fam-headings: 'DistantGalaxy';
+    --font-fam-subheadings: 'Vermillion22';
+    --font-fam-paragraphs: 'Xolonium';
+    --font-fam-footer: 'Sterilict';
+  }
+
+  h1, h2 {
+    font-family: var(--font-fam-headings)
+  }
+  h3, h4, h5 {
+    font-family: var(--font-fam-subheadings);
+  }
+  h6, p {
+    font-family: var(--font-fam-paragraphs);
+  }
+  .txt-btn-wrapper p {
+    font-family: var(--font-fam-paragraphs)
+  }
+  footer p {
+    font-family: var(--font-fam-footer);
+  }
+  h1 {
+    font-size: 3.75rem;
+  }
+  h2 {
+    font-size: 2.5rem;
+  }
+  h6 {
+    font-size: 1rem;
+  }
+
+  /*
+  Theme picker section START
+*/
+
+/*
+  The fieldset is the visual box that is displayed.  Setting the background to the
+  same value as the body will make it appear as if there is no background. Because
+  the fieldset is the box around the radios, applying border-image will create a 
+  nice border around the radios.  
+
+  TO IMPROVE: Probably need to make this a hideable element somehow.  It shouldn't
+  be ever present.
+
+*/
+
+.theme-picker > fieldset {
+    border: 5px solid;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: fit-content;
+    background: var(--clr-card-bg);
+    padding: 1rem 3rem;
+    margin-inline: auto;
+    border-radius: 1rem 1rem 1rem 1rem;
+    border-color: var(--clr-border);
+  }
+
+  /*
+    The appearance is set to not to hide the actual radio buttons.  Because
+    they hidden, their position had to be shifted so that the radios sit on
+    top of the images.
+  */
+  
+  .theme-picker input[type="radio"] {
+    appearance: none;
+    width: 1.5rem;
+    height: 1.5rem;
+    outline-offset: 3px;
+    border-radius: 150%;
+    position: relative;
+    left: 31px;
+    top: -1px;
+  }
+  
+  /*
+    Styling the images to be the correct size and also
+    what the cursor will look like on top of them.
+  */
+  
+  .theme-picker input[type="radio"] + img {
+    cursor: pointer;
+    background:rgba(255, 255, 255, 0.699);
+    border-radius: 50%;
+  }
+  
+  .logo-image {
+    width: 40px; 
+  }
+
+  /*
+    Determines what happens when the radio has been selected.
+    We want to denote which radio is active.  This code seems
+    to work, but I am not quite sure why there are 2 box shadows
+    when they seem to be side to the same object.
+  */
+
+  .theme-picker input[type="radio"]:checked + img {
+    width: 40px;
+    background:white;
+    text-align:center;
+    border-radius:50%;
+    cursor:pointer;
+    box-shadow: var(--clr-logo-shadow);
+  }
+  
+  
+  /*
+    Determines the variable values which will apply to each theme.
+    Every them basically needs two entries.  One for regular class
+    and another for the same class with has() for when it is checked.
+  */
+  
+  .blue-dark {
+    --clr-body-bg: hsl(209 50% 12%);
+    --clr-card-bg: hsl(209 50% 20%);
+    --clr-input-bg: hsl(209 72% 75%);
+    --clr-img-bg: hsl(194 50% 30%);
+    --clr-border: white;
+    --clr-text: hsl(209, 85%, 68%);
+    --clr-heading: hsl(209 72% 75%);
+    --clr-neon: hsl(189, 100%, 48%);
+    --clr-neon-secondary: hsl(281, 100%, 51%);
+    --clr-neon-opposite: hsl(360 100% 52%);
+    --clr-logo-shadow: 0 12px 30px rgba(255,255,255,0.7);
+    --font-fam-headings: 'DistantGalaxy';
+    --font-fam-subheadings: 'Vermillion22';
+    --font-fam-paragraphs: 'Xolonium';
+    --font-fam-footer: 'Sterilict';
+  }
+  
+  .green-dark {
+    --clr-body-bg: hsl(166 50% 8%);
+    --clr-card-bg: hsl(166 50% 17%);
+    --clr-img-bg: hsl(166 50% 30%);
+    --clr-input-bg: hsl(157, 72%, 75%);
+    --clr-border: white;
+    --clr-text: hsl(109, 71%, 68%);
+    --clr-heading: hsl(109, 66%, 55%);
+    --clr-neon: hsl(122, 100%, 51%);
+    --clr-neon-secondary: hsl(58, 100%, 51%);
+    --clr-neon-opposite: hsl(360 100% 52%);
+    --clr-logo-shadow: 0 12px 30px rgba(255,255,255,0.7);
+    --font-fam-headings: 'Mandalore';
+    --font-fam-subheadings: 'Vermillion22';
+    --font-fam-paragraphs: 'Xolonium';
+    --font-fam-footer: 'Sterilict';
+  }
+
+  .blue-light {
+    --clr-body-bg: hsl(209 50% 84%);
+    --clr-card-bg: hsl(209 50% 76%);
+    --clr-input-bg: hsl(239, 67%, 78%);
+    --clr-img-bg: hsl(201 50% 66%);
+    --clr-border: black;
+    --clr-text: hsl(209 50% 15%);
+    --clr-heading: hsl(209 50% 25%);
+    --clr-neon: hsl(214 100% 51%);
+    --clr-neon-secondary: hsl(281, 100%, 51%);
+    --clr-neon-opposite: hsl(360 100% 52%);
+    --clr-logo-shadow: 0 12px 30px rgba(0,0,0,0.7);
+    --font-fam-headings: 'DistantGalaxy';
+    --font-fam-subheadings: 'Vermillion22';
+    --font-fam-paragraphs: 'Xolonium';
+    --font-fam-footer: 'Sterilict';
+  }
+  
+  .green-light {
+    --clr-body-bg: hsl(166 50% 90%);
+    --clr-card-bg: hsl(166 50% 81%);
+    --clr-input-bg: hsl(157, 72%, 75%);
+    --clr-img-bg: hsl(149 50% 66%);
+    --clr-border: black;
+    --clr-text: hsl(109 50% 15%);
+    --clr-heading: hsl(109 50% 25%);
+    --clr-neon: hsl(134, 100%, 47%);
+    --clr-neon-secondary: hsl(58, 100%, 51%);
+    --clr-neon-opposite: hsl(360 100% 52%);
+    --clr-logo-shadow: 0 12px 30px rgba(0,0,0,0.7);
+    --font-fam-headings: 'DistantGalaxy';
+    --font-fam-subheadings: 'Vermillion22';
+    --font-fam-paragraphs: 'Xolonium';
+    --font-fam-footer: 'Sterilict';
+  }
+  
+  :root:has(#green-light:checked) {
+    --clr-body-bg: hsl(166 50% 90%);
+    --clr-card-bg: hsl(166 50% 81%);
+    --clr-input-bg: hsl(157, 72%, 75%);
+    --clr-img-bg: hsl(149 50% 66%);
+    --clr-border: black;
+    --clr-text: hsl(109 50% 15%);
+    --clr-heading: hsl(109 50% 25%);
+    --clr-neon: hsl(134, 100%, 47%);
+    --clr-neon-secondary: hsl(58, 100%, 51%);
+    --clr-neon-opposite: hsl(360 100% 52%);
+    --clr-logo-shadow: 0 12px 30px rgba(0,0,0,0.7);
+    --font-fam-headings: 'DistantGalaxy';
+    --font-fam-subheadings: 'Vermillion22';
+    --font-fam-paragraphs: 'Xolonium';
+    --font-fam-footer: 'Sterilict';
+  }
+
+  :root:has(#blue-light:checked) {
+    --clr-body-bg: hsl(209 50% 84%);
+    --clr-card-bg: hsl(209 50% 76%);
+    --clr-input-bg: hsl(239, 67%, 78%);
+    --clr-img-bg: hsl(201 50% 66%);
+    --clr-border: black;
+    --clr-text: hsl(209 50% 15%);
+    --clr-heading: hsl(209 50% 25%);
+    --clr-neon: hsl(214 100% 51%);
+    --clr-neon-secondary: hsl(281, 100%, 51%);
+    --clr-neon-opposite: hsl(360 100% 52%);
+    --clr-logo-shadow: 0 12px 30px rgba(0,0,0,0.7);
+    --font-fam-headings: 'DistantGalaxy';
+    --font-fam-subheadings: 'Vermillion22';
+    --font-fam-paragraphs: 'Xolonium';
+    --font-fam-footer: 'Sterilict';
+  }
+  
+  :root:has(#green-dark:checked) {
+    --clr-body-bg: hsl(166 50% 8%);
+    --clr-card-bg: hsl(166 50% 17%);
+    --clr-input-bg: hsl(166, 72%, 75%);
+    --clr-img-bg: hsl(145 50% 30%);
+    --clr-border: white;
+    --clr-text: hsl(155, 71%, 68%);
+    --clr-heading: hsl(155, 66%, 55%);
+    --clr-neon: hsl(122, 100%, 51%);
+    --clr-neon-secondary: hsl(58, 100%, 51%);
+    --clr-neon-opposite: hsl(360 100% 52%);
+    --clr-logo-shadow: 0 12px 30px rgba(255,255,255,0.7);
+    --font-fam-headings: 'Mandalore';
+    --font-fam-subheadings: 'Vermillion22';
+    --font-fam-paragraphs: 'Xolonium';
+    --font-fam-footer: 'Sterilict';
+  }
+  
+  /*
+    Theme picker section END
+  */
