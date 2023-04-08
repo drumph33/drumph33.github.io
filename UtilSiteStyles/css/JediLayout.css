@@ -255,7 +255,7 @@
     --font-fam-footer: 'Sterilict';
   }
 
-  root:has(#green-dark:checked) {
+  root:has(#blue-dark:checked) {
     --clr-body-bg: hsl(209 50% 12%);
     --clr-card-bg: hsl(209 50% 20%);
     --clr-input-bg: hsl(209 72% 75%);
