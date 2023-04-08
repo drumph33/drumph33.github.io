@@ -200,6 +200,19 @@
     --clr-neon-opposite: hsl(58, 100%, 52%);
     --clr-logo-shadow: 0 12px 30px rgba(255,255,255,0.7); 
   }
+
+  :root:has(#red:checked) {
+    --clr-body-bg: hsl(360 50% 11%);
+    --clr-card-bg: hsl(360 50% 19%);
+    --clr-input-bg: hsl(325, 85%, 87%);
+    --clr-img-bg: hsl(360 50% 34%);
+    --clr-border: white;
+    --clr-text: hsl(0, 45%, 49%);
+    --clr-heading: hsl(0, 72%, 46%);
+    --clr-neon: hsl(360 100% 52%);
+    --clr-neon-secondary: hsl(281, 100%, 51%);
+    --clr-neon-opposite: hsl(122, 100%, 53%);
+    --clr-logo-shadow: 0 12px 30px rgba(255,255,255,0.7);
   
   /*
     Theme picker section END
